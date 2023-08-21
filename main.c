@@ -6,7 +6,7 @@
 /*   By: jdaly <jdaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:54:41 by jdaly             #+#    #+#             */
-/*   Updated: 2023/08/21 21:02:48 by jdaly            ###   ########.fr       */
+/*   Updated: 2023/08/21 21:09:40 by jdaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,68 +159,6 @@ char	**ft_create_array(char *str, int wordcount)
     }
     return (array);
 }
-
-// size_t    ft_strlen(const char *a)
-// {
-//     int    i;
-
-//     i = 0;
-//     while (a[i])
-//         i++;
-//     return (i);
-// }
-
-// char    *ft_strchr(const char *str, int c)
-// {
-//     size_t  i;
-
-//     i = 0;
-//     while (i <= ft_strlen(str))
-//     {
-//         if (str[i] == (unsigned char)c)
-//         {
-//             return ((char *)&str[i]);
-//         }
-//         i++;
-//     }
-//     return (0);
-// }
-
-// static int ft_count_words(const char *s, char *c)
-// {
-//     int q_single; /*single quote flag*/
-//     int q_double; /*double quote flag*/
-//     int nwords;  /*number of words*/
-// 	int	i;
-
-// 	q_single = 0;
-// 	q_double = 0;
-// 	nwords = 0;
-// 	i = 0;
-//     while (s[i] != '\0')
-//     {
-//         if (!ft_strchr(c, s[i]))
-//         {
-//             nwords++;
-
-//             while ((!ft_strchr(c, s[i]) || q_single) && s[i] != '\0')
-//             {
-//                 if (!q_double && (s[i] == '\"' || s[i] == '\''))
-//                     q_double = s[i];
-//                 q_single = (q_single + (s[i] == q_double)) % 2;
-//                 q_double *= q_single != 0;
-//                 i++;
-//             }
-
-//             if (q_single)
-//                 return (-1);
-//         }
-//         else
-//             i++;
-//     }
-
-//     return (nwords);
-// }
 
 void	print_array(char **array)
 {

@@ -6,7 +6,7 @@
 /*   By: jdaly <jdaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:54:41 by jdaly             #+#    #+#             */
-/*   Updated: 2023/08/21 21:37:10 by jdaly            ###   ########.fr       */
+/*   Updated: 2023/08/21 21:42:45 by jdaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,24 @@ int	ft_count_words(char *str)
     return (wordcount);
 }
 
+char	*ft_strndup(const char *s, size_t n)
+{
+	char			*res;
+	unsigned int	i;
+
+	i = 0;
+	res = malloc(sizeof(char) * (n + 1));
+	if (res == NULL)
+		return (NULL);
+	while (i < n)
+	{
+		res[i] = s[i];
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
+}
+
 char	**ft_create_array(char *str, int wordcount)
 {
     char **array;
@@ -114,7 +132,7 @@ char	**ft_create_array(char *str, int wordcount)
             }
             else
             {
-                array[j++] = strndup(&str[start], i - start + 1);
+                array[j++] = ft_strndup(&str[start], i - start + 1);
                 flag_sq = 0;
                 start = -1;
             }
@@ -130,7 +148,7 @@ char	**ft_create_array(char *str, int wordcount)
             }
             else
             {
-                array[j++] = strndup(&str[start], i - start + 1);
+                array[j++] = ft_strndup(&str[start], i - start + 1);
                 flag_dq = 0;
                 start = -1;
             }
@@ -150,7 +168,7 @@ char	**ft_create_array(char *str, int wordcount)
             if (flag_rd && (str[i+1] == ' ' || str[i+1] == 34 || str[i+1] == 39 || !str[i+1]))
             {
                 // printf("last word end\n");
-                array[j++] = strndup(&str[start], i - start + 1);
+                array[j++] = ft_strndup(&str[start], i - start + 1);
                 flag_rd = 0;
             }
         }

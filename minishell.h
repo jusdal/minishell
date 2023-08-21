@@ -6,7 +6,7 @@
 /*   By: jdaly <jdaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:55:34 by jdaly             #+#    #+#             */
-/*   Updated: 2023/08/15 19:33:50 by jdaly            ###   ########.fr       */
+/*   Updated: 2023/08/21 20:56:03 by jdaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 //# include "colors.h"
 # include <stdio.h>
+# include <stdlib.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include <unistd.h> //usleep
+# include <string.h> //remove strdup
 
 #endif

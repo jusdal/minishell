@@ -6,7 +6,7 @@
 /*   By: jdaly <jdaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:54:41 by jdaly             #+#    #+#             */
-/*   Updated: 2023/08/21 21:09:40 by jdaly            ###   ########.fr       */
+/*   Updated: 2023/08/21 21:37:10 by jdaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,25 @@ char	**ft_create_array(char *str, int wordcount)
     return (array);
 }
 
+char **ft_split_cmds(char *s)
+{
+	char	**array;
+	int		nwords;
+
+	if (!s)
+		return (NULL);
+	nwords = ft_count_words(s);
+	printf("wordcount: %d\n", nwords);
+	if (nwords == -1)
+		return (NULL);
+	array = malloc(sizeof(char *) * (nwords + 1));
+	if (!array)
+		return (NULL);
+	array = ft_create_array(s, nwords);
+	array[nwords] = NULL;
+	return (array);
+}
+
 void	print_array(char **array)
 {
 	int	i;
@@ -170,6 +189,22 @@ void	print_array(char **array)
 		printf("array[%d] = %s\n", i, array[i]);
 		i++;
 	}
+}
+
+void	check_args(char *out)
+{
+	char **args;
+
+	if (!out)
+	{
+		printf("exit\n");
+		return ;
+	}
+	if (out[0] != '\0')
+		add_history(out);
+	args = ft_split_cmds(out);
+	print_array(args);
+	free(out);
 }
 
 
@@ -193,10 +228,12 @@ int	main(int argc, char *argv[], char *envp[])
 	while (1)
 	{
 		out = readline(prompt);
-		wordcount = ft_count_words(out);
-		printf("wordcount = %d\n", wordcount);
-		array = ft_create_array(out, wordcount);
-		print_array(array);
+		check_args(out);
+
+		// wordcount = ft_count_words(out);
+		// printf("wordcount = %d\n", wordcount);
+		// array = ft_create_array(out, wordcount);
+		// print_array(array);
 	}
 
 	

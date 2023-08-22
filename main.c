@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lmain.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdaly <jdaly@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 18:54:41 by jdaly             #+#    #+#             */
-/*   Updated: 2023/08/21 21:42:45 by jdaly            ###   ########.fr       */
+/*   Updated: 2023/08/22 20:02:52 by jdaly            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,37 +222,38 @@ void	check_args(char *out)
 		add_history(out);
 	args = ft_split_cmds(out);
 	print_array(args);
-	free(out);
+	free(out); //necessary?
 }
+// 2. expand variables except in single quotes
 
 
 // 2. create tokens
 
 // prompt loop function
-int	main(int argc, char *argv[], char *envp[])
-{
-	// 1. get username
-	// 2. get home directory
-	// 3. display prompt string and wait for input
+// int	main(int argc, char *argv[], char *envp[])
+// {
+// 	// 1. get username
+// 	// 2. get home directory
+// 	// 3. display prompt string and wait for input
 
-	char	*prompt;
-	char	*out;
-	char	**array;
-	int		wordcount;
-	char	space = ' ';
+// 	char	*prompt;
+// 	char	*out;
+// 	char	**array;
+// 	int		wordcount;
+// 	char	space = ' ';
 
-	out = NULL;
-	prompt = "jdaly@minishell$ ";
-	while (1)
-	{
-		out = readline(prompt);
-		check_args(out);
+// 	out = NULL;
+// 	prompt = "jdaly@minishell$ ";
+// 	while (1)
+// 	{
+// 		out = readline(prompt);
+// 		check_args(out);
 
-		// wordcount = ft_count_words(out);
-		// printf("wordcount = %d\n", wordcount);
-		// array = ft_create_array(out, wordcount);
-		// print_array(array);
-	}
+// 		// wordcount = ft_count_words(out);
+// 		// printf("wordcount = %d\n", wordcount);
+// 		// array = ft_create_array(out, wordcount);
+// 		// print_array(array);
+// 	}
 
 	
 
